@@ -1,13 +1,25 @@
 <?php
-// 5 -3 10 2 7 9 4
-
 
 //vecteur vitesse
 
-echo "Les coordonnées du vecteur vitesse sont (".($argv[4] - $argv[1]).";".($argv[5] - $argv[2]).";".($argv[6] - $argv[3]).").\n";
+if (count($argv) != 8)
+{
+   echo "Syntax Error\nUsage : Entrez les paramètres suivant : x(a) y(a) z(a) x(b) y(b) z(b) t";
+   exit(0);
+}
 
+$xv = ($argv[4] - $argv[1]);
+$yv = ($argv[5] - $argv[2]);
+$zv = ($argv[6] - $argv[3]);
 
-//coord position
+if (pow($xv,2) + pow($yv,2) + pow($zv,2) == 0)
+{   
+    echo "Les coordonnées du vecteur vitesse sont nulles";
+    exit(1);
+}
+echo "Les coordonnées du vecteur vitesse sont ($xv; $yv; $zv).\n";
+
+// coordonnées position
 
 $vectorv = array();
 $vectorv[0] = $argv[4];
@@ -21,8 +33,7 @@ for ($i = 0; $i < $argv[7]; $i++)
 }
 echo "A l'instant t+".$argv[7].", les coordonnées de la balle seront (".$vectorv[0].";".$vectorv[1].";".$vectorv[2].").\n";
 
-
-//angle d'incidence
+// angle d'incidence
 
 $resultat = sqrt(pow(-($argv[5] - $argv[2]), 2) + pow(($argv[4] - $argv[1]), 2));
 
