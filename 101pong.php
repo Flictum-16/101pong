@@ -37,6 +37,9 @@ echo "A l'instant t+".$argv[7].", les coordonnées de la balle seront (".$vector
 
 $resultat = sqrt(pow(-($argv[5] - $argv[2]), 2) + pow(($argv[4] - $argv[1]), 2));
 
+if ($resultat == 0)
+   exit(3);
+
 $resultat = $resultat / sqrt(pow(($argv[4] - $argv[1]), 2) + pow(($argv[5] - $argv[2]), 2) + pow(($argv[6] - $argv[3]), 2));
 
 echo "L'angle d'incidence est de " . round((acos($resultat) * 57.295779), 2) . " degrés.\n";
